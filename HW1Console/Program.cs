@@ -8,7 +8,6 @@ namespace HW1Console
     {
         static void Main(string[] args)
         {
-
             Utils utils = new HW1Library.Utils();
             while (true)
             {
