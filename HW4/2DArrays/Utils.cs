@@ -15,7 +15,7 @@ namespace _2DArrays
             StringBuilder sb = new StringBuilder();
             int m = array.GetLength(0);
             int n = array.GetLength(1);
-            //выводим массив
+            
             for (int x = 0; x < m; x++)
             {
                 for (int y = 0; y < n; y++)
@@ -52,6 +52,7 @@ namespace _2DArrays
         {
             int dim = array.GetLength(1);
             int buffer = 0;
+
             if (dim - 1 < i || i < 0) throw new ArgumentException("Неверный индекс строки");
 
             for (var k = 1; k < dim; k++)
@@ -73,6 +74,7 @@ namespace _2DArrays
         {
             int dim = array.GetLength(1);
             int buffer = 0;
+
             if (dim - 1 < i || i < 0) throw new ArgumentException("Неверный индекс строки");
 
             for (var k = 1; k < dim; k++)
@@ -95,7 +97,7 @@ namespace _2DArrays
             int m = array.GetLength(0);
             int n = array.GetLength(1);
             int negativeCount = 0 , positiveCount = 0;
-            //выводим массив
+            
             for (int x = 0; x < m; x++)
             {
                 for (int y = 0; y < n; y++)
