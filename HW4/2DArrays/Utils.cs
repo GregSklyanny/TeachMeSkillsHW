@@ -31,49 +31,62 @@ namespace _2DArrays
 
         public static int[,] ReverseLine(int[,] array, int i)
         {
-            var list = new List<int>();
             int dim = array.GetLength(1);
+            int l = 0;
+            int r = dim - 1;
+            int buffer = 0;
+
             if (dim - 1 < i || i < 0) throw new ArgumentException("Неверный индекс строки");
-            for (int k = 0; k < dim; k++)
+            
+            while(l < r)
             {
-                list.Add(array[i, k]);
-            }
-            list.Reverse();
-            for (int k = 0; k < dim; k++)
-            {
-                array[i,k] = list[k];
+                buffer = array[i,l];
+                array[i, l] = array[i,r];
+                array[i,r] = buffer;
+                l++;
+                r--;
             }
             return array;
         }
         public static int[,] SortAscending(int[,] array, int i)
         {
-            var list = new List<int>();
             int dim = array.GetLength(1);
+            int buffer = 0;
             if (dim - 1 < i || i < 0) throw new ArgumentException("Неверный индекс строки");
-            for (int k = 0; k < dim; k++)
+
+            for (var k = 1; k < dim; k++)
             {
-                list.Add(array[i, k]);
-            }
-            list.Sort((a,b) => a - b);
-            for (int k = 0; k < dim; k++)
-            {
-                array[i, k] = list[k];
+                var key = array[i,k];
+                var j = k;
+                while ((j > 0) && (array[i, j - 1] > key))
+                {
+                    buffer = array[i, j];
+                    array[i, j] = array[i, j - 1];
+                    array[i, j - 1] = buffer;
+                    j--;
+                }
+                array[i, j] = key;
             }
             return array;
         }
         public static int[,] SortDescending(int[,] array, int i)
         {
-            var list = new List<int>();
             int dim = array.GetLength(1);
+            int buffer = 0;
             if (dim - 1 < i || i < 0) throw new ArgumentException("Неверный индекс строки");
-            for (int k = 0; k < dim; k++)
+
+            for (var k = 1; k < dim; k++)
             {
-                list.Add(array[i, k]);
-            }
-            list.Sort((a, b) => b - a);
-            for (int k = 0; k < dim; k++)
-            {
-                array[i, k] = list[k];
+                var key = array[i, k];
+                var j = k;
+                while ((j > 0) && (array[i, j - 1] < key))
+                {
+                    buffer = array[i, j];
+                    array[i, j] = array[i, j - 1];
+                    array[i, j - 1] = buffer;
+                    j--;
+                }
+                array[i, j] = key;
             }
             return array;
         }
