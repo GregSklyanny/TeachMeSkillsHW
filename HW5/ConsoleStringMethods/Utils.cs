@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,6 +10,7 @@ namespace ConsoleStringMethods
 {
     public class Utils
     {
+        private static char[]  _splitFilter = new char[] { '!', '?', '.' ,',', ' '};
         public static string[] ParseSentencesRegex(string input)
         {
             string[] strings = Regex.Split(input, @"(?<=[\.!\?])\s+");
@@ -32,7 +34,7 @@ namespace ConsoleStringMethods
         }
         public static string CheckMaxDigits(string input)
         {
-            string[] strings = input.Split(new char[] { '!', '?', '.' ,',', ' '}, StringSplitOptions.RemoveEmptyEntries);
+            string[] strings = input.Split(_splitFilter, StringSplitOptions.RemoveEmptyEntries);
             int maxCountOfDigits = -1;
             string wordWithMaxCountOfDigits = "";
 
@@ -53,7 +55,7 @@ namespace ConsoleStringMethods
         }
         public static string CheckLongWordAndAppearance(string input)
         {
-            var strings = input.Split(new char[] { '!', '?', '.', ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var strings = input.Split(_splitFilter, StringSplitOptions.RemoveEmptyEntries);
             Array.Sort(strings, (a, b) => a.Length - b.Length);
             int count = strings.GroupBy(g => g).Where(g => g.Key == strings[strings.Length-1]).First().Count();
             return $"Слово {strings[strings.Length - 1]} имеет длину {strings[strings.Length - 1].Length} и встречается в тексте {count} раз";
@@ -73,13 +75,13 @@ namespace ConsoleStringMethods
                 { "8", "восемь" }, 
                 { "9", "девять" }
             };
-            string result = input;
-            
+            var sb = new StringBuilder(input);
+
             for(int i = 0; i < 10; i++)
             {
-                result = result.Replace(i.ToString(), dict[i.ToString()]);
+                sb = sb.Replace(i.ToString(), dict[i.ToString()]);
             }
-            return result;
+            return sb.ToString();
         }
         public static string AffirmativeAndQuestions(string input)
         {
@@ -112,7 +114,7 @@ namespace ConsoleStringMethods
         public static string BeginAndEndsWithTheSameLetter(string input)
         {
             StringBuilder result = new StringBuilder();
-            string[] strings = input.Split(new char[] { '!', '?', '.', ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] strings = input.Split(_splitFilter, StringSplitOptions.RemoveEmptyEntries);
             foreach(string word in strings)
             {
                 if (word[0] == word[word.Length-1])
