@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineCourseHW7.Senders
+namespace OnlineCourseHW7
 {
     public class EmailSender : ISender
     {

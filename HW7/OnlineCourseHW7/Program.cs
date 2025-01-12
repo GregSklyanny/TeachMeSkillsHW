@@ -18,6 +18,8 @@
             lesson = course.GetCurrentLesson();
             course.RemoveLesson(lesson.Id);
             lesson = course.GetCurrentLesson();
+            course.SendMessage("Завтра будет урок, не опаздывайте", new EmailSender());
+            course.SendMessage("Не забудьте выключить звук на телефоне", new PhoneSender());
 
         }
     }
