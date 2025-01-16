@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineCourseHW7
 {
-    public class PhoneSender : ISender
+    public class PhoneSender : IMessageSender
     {
         public void SendToStudents(string message, List<Student> list)
         {

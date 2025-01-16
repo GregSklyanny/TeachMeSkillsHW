@@ -12,7 +12,7 @@ namespace OnlineCourseHW7
         public void StopCurrentLesson();
         public bool AddLesson(string name, string description, DateTime datetime);
         public bool RemoveLesson(Guid id);
-        public void SendMessage(string message, ISender sender);
+        public void SendMessage(string message, IMessageSender sender);
         public bool AddStudent(string name, string secondName, string phoneNumber, string email);
         public bool RemoveStudent(Guid id);
     }

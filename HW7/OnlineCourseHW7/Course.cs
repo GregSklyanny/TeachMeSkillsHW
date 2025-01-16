@@ -82,7 +82,7 @@ namespace OnlineCourseHW7
                 }
             }
         }
-       public void SendMessage(string message, ISender sender)
+       public void SendMessage(string message, IMessageSender sender)
         {
             sender.SendToStudents(message, StudentList);
         }

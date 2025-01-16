@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineCourseHW7
 {
-    public interface ISender
+    public interface IMessageSender
     {
         public void SendToStudents(string message, List<Student> list);
     }
