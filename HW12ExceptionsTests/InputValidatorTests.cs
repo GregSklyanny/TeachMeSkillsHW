@@ -1,7 +1,7 @@
 using HWExceptions;
 namespace HW12ExceptionsTests
 {
-    public class IsInputCorrectTest
+    public class InputValidatorTests
     {
         [Theory]
         [InlineData("Greg", "112fffa", "112fffa")]
@@ -27,7 +27,7 @@ namespace HW12ExceptionsTests
         [InlineData("Greg")]
         [InlineData("adsdqwdqwdqwdqwgwrg545g5ggewgwegwegwerwerwerw3r32r23r23r23r")]
         [InlineData("Gre G")]
-        public void CheckLoginValidation(string login)
+        public void CheckLoginValidation_ShouldThrowException(string login)
         {
             Assert.Throws<WrongLoginException>(() => InputValidator.ValidateLogin(login));
         }
@@ -37,7 +37,7 @@ namespace HW12ExceptionsTests
         [InlineData("1 23", "1 23")]
         [InlineData("12asdasdasdasdasdasdasdqwdqwdqwdqwfgqwfqwfqwfqwfqwf3", "12asdasdasdasdasdasdasdqwdqwdqwdqwfgqwfqwfqwfqwfqwf3")]
         [InlineData("afafssaf", "afafssaf")]
-        public void CheckPasswordValidation(string password, string passwordConfirmation)
+        public void CheckPasswordValidation_ShouldThrowException(string password, string passwordConfirmation)
         {
             Assert.Throws<WrongPasswordException>(() => InputValidator.ValidatePassword(password, passwordConfirmation));
         }
