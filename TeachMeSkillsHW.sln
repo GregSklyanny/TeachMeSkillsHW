@@ -85,7 +85,7 @@ Global
 		{A61356E4-38DE-4D38-9331-71AC18BFC5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A61356E4-38DE-4D38-9331-71AC18BFC5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A61356E4-38DE-4D38-9331-71AC18BFC5AE}.Release|Any CPU.Build.0 = Release|Any CPU
-    {5AF688BE-C99C-47B5-8FCD-3678F7807268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF688BE-C99C-47B5-8FCD-3678F7807268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AF688BE-C99C-47B5-8FCD-3678F7807268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF688BE-C99C-47B5-8FCD-3678F7807268}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AF688BE-C99C-47B5-8FCD-3678F7807268}.Release|Any CPU.Build.0 = Release|Any CPU
@@ -97,7 +97,7 @@ Global
 		{06A52BD9-186A-4BCB-B7B5-E20775F4B137}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06A52BD9-186A-4BCB-B7B5-E20775F4B137}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06A52BD9-186A-4BCB-B7B5-E20775F4B137}.Release|Any CPU.Build.0 = Release|Any CPU
-  EndGlobalSection
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
