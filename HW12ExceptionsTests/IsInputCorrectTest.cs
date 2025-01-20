@@ -1,7 +1,7 @@
 using HWExceptions;
 namespace HW12ExceptionsTests
 {
-    public class UnitTest1
+    public class IsInputCorrectTest
     {
         [Theory]
         [InlineData("Greg", "112fffa", "112fffa")]

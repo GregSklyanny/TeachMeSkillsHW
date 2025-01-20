@@ -91,7 +91,7 @@ namespace HWExceptions
                 }
                 if (!isValid)
                 {
-                    throw new WrongLoginException(_message);
+                    throw new WrongPasswordException(_message);
                 }
             }
             
