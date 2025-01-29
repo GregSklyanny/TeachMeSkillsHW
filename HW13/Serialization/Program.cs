@@ -15,10 +15,10 @@ namespace Serialization
             {
                 try
                 {
-                using (FileStream fs = new FileStream(jsonFiles[0], FileMode.Open))
-                {
-                    squad = JsonSerializer.Deserialize<Squad>(fs);
-                }
+                    using (FileStream fs = new FileStream(jsonFiles[0], FileMode.Open))
+                    {
+                        squad = JsonSerializer.Deserialize<Squad>(fs);
+                    }
                 }
                 catch (Exception ex)
                 {
