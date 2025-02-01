@@ -6,7 +6,7 @@ namespace TestProject
     [CollectionDefinition("Non-parallel", DisableParallelization = true)]
 
     [Collection("Non-parallel")]
-    public class JSONDeserializer
+    public class TestUnit
     {
         
         [Fact]
@@ -31,7 +31,7 @@ namespace TestProject
             string inputDirectory = Utils.CheckOrCreateDirectory(@"C:\Users\user\source\repos\TeachMeSkillsHW\HW13\Serialization\bin\Debug\net8.0\inputdata");
             var jsonFiles = Directory.GetFiles(inputDirectory, "*.json");
             Squad squad = Utils.DeserializeJSON<Squad>(jsonFiles[0]);
-            string outputDirectory = Utils.CheckOrCreateDirectory(Utils.GetProjectDirectory() + "\\outputdata\\");
+            string outputDirectory = Utils.CheckOrCreateDirectory(Directory.GetCurrentDirectory() + "\\outputdata\\");
             Assert.True(Utils.SerializeXML<Squad>(outputDirectory + "Super hero squad.xml", squad));
             Assert.Equal(File.ReadAllText(Directory.GetFiles(outputDirectory, "*.xml")[0]), File.ReadAllText(Directory.GetCurrentDirectory() + "\\examples\\Super hero squad.xml"));
         }

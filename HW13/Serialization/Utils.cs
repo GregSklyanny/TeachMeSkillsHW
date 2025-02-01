@@ -12,9 +12,9 @@ namespace Serialization
 {
     public class Utils
     {
-        public static T DeserializeJSON<T>(string path)
+        public static T DeserializeJSON<T>(string path) where T : class
         {
-            T output = default(T);
+            T output = null;
             try
             {
                 using (FileStream fs = new FileStream(path, FileMode.Open))
@@ -29,7 +29,7 @@ namespace Serialization
             return output;
         }
 
-        public static bool SerializeXML<T>(string path, T data)
+        public static bool SerializeXML<T>(string path, T data) where T : class
         {
             try
             {
@@ -53,6 +53,5 @@ namespace Serialization
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
             return path;
         }
-        public static string GetProjectDirectory() => Directory.GetCurrentDirectory();
     }
 }
