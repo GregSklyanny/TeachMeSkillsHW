@@ -1,6 +1,8 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using System.Xml;
 using System.Xml.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Serialization
 {
@@ -8,36 +10,15 @@ namespace Serialization
     {
         static void Main(string[] args)
         {
-            string inputDirectory = Directory.GetCurrentDirectory() + "/inputdata";
+            string inputDirectory = Utils.CheckOrCreateDirectory(Directory.GetCurrentDirectory() + "\\inputdata\\");
+            string outputDirectory = Utils.CheckOrCreateDirectory(Directory.GetCurrentDirectory() + "\\outputdata\\");
             var jsonFiles = Directory.GetFiles(inputDirectory, "*.json");
-            Squad squad = null;
+            Squad squad;
+
             foreach (string file in jsonFiles)
             {
-                try
-                {
-                using (FileStream fs = new FileStream(jsonFiles[0], FileMode.Open))
-                {
-                    squad = JsonSerializer.Deserialize<Squad>(fs);
-                }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-
-                try
-                {
-                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(Squad));
-                    string outputXMLFile = inputDirectory + $"/{squad.SquadName}.xml";
-                    using (FileStream fs = new FileStream(outputXMLFile, FileMode.OpenOrCreate))
-                    {
-                        xmlSerializer.Serialize(fs, squad);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
+                squad = Utils.DeserializeJSON<Squad>(file);
+                if (squad != null) Utils.SerializeXML<Squad>(outputDirectory + $"{squad.SquadName}.xml", squad);
             }               
         }
     }
