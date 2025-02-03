@@ -22,17 +22,17 @@ namespace HTTPMethods
             var content = await response.Content.ReadAsStringAsync();
             return content;
         }
-        public static async Task<string> Put(string url, HttpContent contentToPost)
+        public static async Task<string> Put(string url, HttpContent contentToPut)
         {
             using var client = new HttpClient();
-            var response = await client.PutAsync(url, contentToPost);
+            var response = await client.PutAsync(url, contentToPut);
             var content = await response.Content.ReadAsStringAsync();
             return content;
         }
-        public static async Task<string> Patch(string url, HttpContent contentToPost)
+        public static async Task<string> Patch(string url, HttpContent contentToPatch)
         {
             using var client = new HttpClient();
-            var response = await client.PatchAsync(url, contentToPost);
+            var response = await client.PatchAsync(url, contentToPatch);
             var content = await response.Content.ReadAsStringAsync();
             return content;
         }
